@@ -71,3 +71,9 @@ button {
   grid-column: 1 / -1;
   font: inherit;
 }
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1rem;
+}
