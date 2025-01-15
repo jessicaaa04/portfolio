@@ -10,10 +10,22 @@ body {
     /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
        */
-    max-width: 90ch;
+    max-width: 97ch;
     margin-inline: auto;
     padding: 1rem;
     font: 100%/1.5 system-ui;
+}
+
+#nyc-image {
+  max-width: 100%;
+  height: auto;
+  width: 400px;
+}
+
+@media (max-width: 600px) {
+  #nyc-image {
+    width: 60%;
+  }
 }
 
 nav {
