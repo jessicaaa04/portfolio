@@ -125,9 +125,8 @@ h1, h2, h3, h4, h5, h6 {
 
 section {
   max-width: 43rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   margin: 2rem auto;
-  background: white;
   padding: 2rem;
 }
 
@@ -144,6 +143,10 @@ ul {
 
 ul li {
   margin-bottom: 0.5rem;
+}
+
+section header h3 {
+  border-bottom: none;
 }
 
 @media (max-width: 600px) {
