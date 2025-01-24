@@ -5,35 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jessica_Zhang: Contact</title>
     <link rel="stylesheet" href="../style.css">
+    <script type="module" src="../global.js"></script>
 </head>
 <body>
     <h1>Contact</h1>
-    <nav>
-        <a href="../index.html">Home</a>
-        <a href="../projects/index.html">Projects</a>
-        <a href="../contact/index.html" class="current">Contact</a>
-        <a href="../resume/index.html">Resume</a>
-        <a href="https://github.com/jessicaaa04" target="_blank">GitHub</a>
-    </nav>
-    <form action="mailto:2089257436@qq.com" method="POST" enctype="text/plain">
-        <label>
-            <span>Email:</span>
-            <input type="email" name="email">
-        </label>
 
-        <label>
-            <span>Subject:</span>
-            <input name="subject">
-        </label>
-
-        <label>
-            <span>Message:</span>
-            <textarea name="body" rows="5" cols="30"></textarea>
-        </label>
-
-        <button>Send</button>
+    <form id="contact-form">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required />
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit">Send</button>
     </form>
-
-    <script type="module" src="../global.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@
 
 html {
   accent-color: var(--color-accent);
+  color-scheme: light dark;
 }
 
 body {
@@ -14,8 +15,8 @@ body {
     margin-inline: auto;
     padding: 1rem;
     font: 100%/1.5 system-ui;
-    color: #333;
-    background-color:antiquewhite;
+    color: canvastext;
+    background-color: canvas;
 }
 
 #nyc-image {
@@ -28,6 +29,11 @@ body {
   #nyc-image {
     width: 60%;
   }
+}
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom: 1px solid var(--border-color);
 }
 
 nav {
@@ -55,36 +61,50 @@ nav a.current {
 
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
 
 form {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1em;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
-label {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1 / -1;
+form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-label span {
-  grid-column: 1;
-}
-label input
-label textarea {
-  grid-column: 2;
+form input,
+form textarea {
   width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   box-sizing: border-box;
-  font:inherit
 }
 
-button {
-  grid-column: 1 / -1;
-  font: inherit;
+form textarea {
+  resize: vertical;
+  min-height: 100px;
 }
+
+form button {
+  padding: 0.7rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+form button:hover {
+  background-color: gray;
+}
+
 
 .projects {
   display: grid;
@@ -106,19 +126,16 @@ button {
 h1 {
   text-align: left;
   font-size: 400%;
-  color: #333;
 }
 
 h2 {
   text-align: left;
   margin-top: 1rem;
-  color: #555;
 }
 
 h3 {
   text-align: left;
   margin-top: 1rem;
-  color: #555;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -171,4 +188,21 @@ section header h3 {
     font-size: 1.25rem; 
   }
 }
+
+.color-scheme {
+  position: absolute;
+  top: 1rem; 
+  right: 1rem; 
+  font-size: 80%; 
+  font-family: inherit; 
+}
+
+.color-scheme select {
+  margin-left: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
 
