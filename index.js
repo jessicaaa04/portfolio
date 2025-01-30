@@ -2,14 +2,13 @@ import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 async function displayLatestProjects() {
     try {
-        // Dynamically determine whether to use a local path or GitHub Pages URL
-        const baseUrl = window.location.hostname.includes("github.io")
-            ? "https://raw.githubusercontent.com/jessicaaa04/portfolio/main/lib/projects.json"
-            : "../lib/projects.json"; 
+    const baseUrl = window.location.hostname.includes("github.io")
+        ? "https://jessicaaa04.github.io/portfolio/lib/projects.json"
+        : "../lib/projects.json";
 
-        console.log(`Fetching projects from: ${baseUrl}`);
+    console.log(`Fetching projects from: ${baseUrl}`);
 
-        const projects = await fetchJSON(baseUrl);
+    const projects = await fetchJSON(baseUrl);
 
         if (!projects || projects.length === 0) {
             console.warn("No projects found in JSON.");
@@ -33,7 +32,6 @@ async function displayLatestProjects() {
 
 window.addEventListener('DOMContentLoaded', displayLatestProjects);
 
-// ----------------- GitHub Stats ------------------
 const githubUsername = 'jessicaaa04';
 
 async function displayGitHubStats() {
