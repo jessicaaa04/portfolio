@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Neural Networks for Image Classification",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Built a convolutional neural network to classify images into multiple categories."
+    },
+    {
+        "title": "Natural Language Processing Chatbot",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Developed a chatbot using transformer models to generate conversational responses."
+    },
+    {
+        "title": "Data Analysis of Online E-education Platform",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Analyzed social media posts using big data techniques to identify trends."
+    },
+    {
+        "title": "Escape AI Game",
+        "year": "2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Designed and implemented an AI-driven escape room game on Roblox."
+    },
+    {
+        "title": "Predictive Power Outage Analysis in U.S.",
+        "year":"2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Used machine learning to predict how likely the power outage will occur in the U.S. based on historical data."
+    },
+    {
+        "title": "Web Scraping for Data Analysis in South-African Tertiary Education",
+        "year": "2021",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Implemented web scraping techniques to collect data from various sources."
+    },
+    {
+        "title": "Data Visualization of K-POP Albums in 2023",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Created interactive data visualizations to showcase K-Pop albums trends."
+    },
+    {
+        "title": "GenAI for Marketing Dept",
+        "year": "2025",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Create personalized marketing email based on the breeds of their pets to improve user engagement."
+    },
+    {
+        "title": "Robotics and Computer Vision",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Implemented a computer vision system for object detection in robotics."
+    },
+    {
+        "title": "Financial Forecasting Model",
+        "year": "2020",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Built a financial forecasting model using regression techniques."
+    },
+    {
+        "title": "Handwriting Recognition with ML",
+        "year": "2021",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Trained a neural network to recognize handwritten text."
+    },
+    {
+        "title": "IoT Smart Home System",
+        "year":"2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "Developed a smart home system using IoT and automation."
+    }
+]

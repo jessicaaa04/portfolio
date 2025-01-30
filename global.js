@@ -92,4 +92,70 @@ form?.addEventListener('submit', (event) => {
   location.href = mailtoLink;
 });
 
-  
+export async function fetchJSON(url) {
+  try {
+      const response = await fetch(url);
+      if (!response.ok) {
+          throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      }
+      return await response.json();
+  } catch (error) {
+      console.error('Error fetching or parsing JSON data:', error);
+      return [];  
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  if (!containerElement || !(containerElement instanceof HTMLElement)) {
+      console.error("Invalid containerElement provided.");
+      return;
+  }
+
+  const validHeadings = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  if (!validHeadings.includes(headingLevel)) {
+      console.error("Invalid headingLevel provided. Defaulting to h2.");
+      headingLevel = 'h2';
+  }
+
+  containerElement.innerHTML = ''; // Clear existing content
+
+  if (!projects || projects.length === 0) {
+      containerElement.innerHTML = "<p>No projects available.</p>";
+      return;
+  }
+
+  projects.forEach(project => {
+      const article = document.createElement('article');
+
+      const heading = document.createElement(headingLevel);
+      heading.textContent = project.title || "Untitled Project";
+
+      const img = document.createElement('img');
+      img.src = project.image || 'default-image.png';  
+      img.alt = project.title || 'Project Image';
+
+      const description = document.createElement('p');
+      description.textContent = project.description || 'No description available.';
+
+      article.appendChild(heading);
+      article.appendChild(img);
+      article.appendChild(description);
+
+      containerElement.appendChild(article);
+  });
+}
+
+export async function fetchGitHubData(username) {
+  try {
+      const response = await fetch(`https://api.github.com/users/${username}`);
+   
+      if (!response.ok) {
+          throw new Error(`GitHub API request failed: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return data;
+  } catch (error) {
+      console.error("Error fetching GitHub data:", error);
+  }
+}

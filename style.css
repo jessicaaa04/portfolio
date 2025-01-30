@@ -204,5 +204,22 @@ section header h3 {
   border: 1px solid #ccc;
 }
 
+#profile-stats {
+  font-size: 18px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 400px;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+#profile-stats dt {
+  font-weight: bold;
+}
 
 
