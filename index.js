@@ -2,13 +2,7 @@ import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 
 async function displayLatestProjects() {
     try {
-    const baseUrl = window.location.hostname.includes("github.io")
-        ? "https://jessicaaa04.github.io/portfolio/lib/projects.json"
-        : "../lib/projects.json";
-
-    console.log(`Fetching projects from: ${baseUrl}`);
-
-    const projects = await fetchJSON(baseUrl);
+        const projects = await fetchJSON('../lib/projects.json');
 
         if (!projects || projects.length === 0) {
             console.warn("No projects found in JSON.");
