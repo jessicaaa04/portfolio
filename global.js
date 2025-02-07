@@ -117,7 +117,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       headingLevel = 'h2';
   }
 
-  containerElement.innerHTML = ''; // Clear existing content
+  containerElement.innerHTML = ''; 
 
   if (!projects || projects.length === 0) {
       containerElement.innerHTML = "<p>No projects available.</p>";
@@ -137,9 +137,17 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       const description = document.createElement('p');
       description.textContent = project.description || 'No description available.';
 
+      const year = document.createElement('p');
+      year.textContent = `c. ${project.year || 'Unknown Year'}`;
+      year.style.fontStyle = 'italic';
+      
+      const detailsContainer = document.createElement('div');
+      detailsContainer.appendChild(description);
+      detailsContainer.appendChild(year);
+
       article.appendChild(heading);
       article.appendChild(img);
-      article.appendChild(description);
+      article.appendChild(detailsContainer);
 
       containerElement.appendChild(article);
   });

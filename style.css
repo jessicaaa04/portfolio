@@ -222,4 +222,155 @@ section header h3 {
   font-weight: bold;
 }
 
+.projects p {
+  font-family: "Baskerville", serif;
+  font-variant-numeric: oldstyle-nums;
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+}
+
+.chart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: 100%;
+  margin: auto;
+  flex-wrap: nowrap; 
+}
+
+#projects-pie-plot {
+  flex-shrink: 0;
+  width: min(40vw, 250px); /* Makes the chart responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 300px; /* Prevents it from getting too large */
+  aspect-ratio: 1 / 1; /* Ensures it stays a circle */
+}
+
+/* Ensure wedges are clickable */
+path {
+  cursor: pointer;
+  transition: opacity 300ms ease-in-out, fill 300ms ease-in-out;
+}
+
+/* Fade out other wedges when hovering */
+svg:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+/* Highlight Selected Wedge */
+.selected {
+  --color: oklch(60% 45% 0) !important; /* Highlight color */
+}
+
+/* Ensure selected wedges keep their color */
+.selected path {
+  fill: var(--color) !important;
+}
+
+/* Ensure selected legend items also change color */
+.legend .selected {
+  color: var(--color) !important;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Selected wedge and its corresponding legend should have a distinct highlight */
+path.selected {
+  fill: oklch(60% 45% 0) !important; /* Same distinct color for selection */
+  stroke-width: 2px;
+}
+
+/* Ensure legend items are consistent with wedge selection */
+.legend li.selected {
+  color: oklch(60% 45% 0) !important; /* Match wedge color */
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Ensure consistent legend highlight */
+.legend .swatch.selected {
+  background-color: oklch(60% 45% 0) !important;
+}
+
+/* Legends and Wedges should have same selection logic */
+.legend {
+  flex: 1; /* Allows legend to take up remaining space */
+  display: grid;
+  grid-template-columns: repeat(3, minmax(9em, 1fr)); /* 3 columns */
+  gap: 10px; /* Space between legend items */
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 90vw; 
+  box-sizing: border-box; 
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap; 
+  cursor: pointer;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  .legend {
+    grid-template-columns: repeat(2, minmax(9em, 1fr)); 
+  }
+}
+
+@media (max-width: 500px) {
+  .legend {
+    grid-template-columns: repeat(1, minmax(9em, 1fr));
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+/* Adjust swatch color for selected items */
+.legend .swatch {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  background-color: var(--color);
+  border-radius: 50%;
+}
+
+.legend .swatch.selected {
+  background-color: oklch(60% 45% 0) !important;
+  border: 1px solid black; /* Optional: Adds visibility */
+}
+
+/* Search Bar Enhancements */
+.search-container {
+  margin-bottom: 2rem; 
+  display: flex;
+  justify-content: center; 
+}
+
+.searchBar {
+  width: 100%;
+  max-width: 600px;
+  padding: 14px 16px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.searchBar:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
 
