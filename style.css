@@ -374,3 +374,182 @@ path.selected {
 }
 
 
+.summary-container {
+  max-width: 1200px; /* Ensure the title and stats align */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Stats Section */
+.stats-container {
+  display: flex;
+  justify-content: flex-start; /* Align stats to the left */
+  align-items: stretch; /* Make all stats have the same height */
+  gap: 20px; /* Spacing between stats */
+  padding: 20px 0; /* Adjust padding for better alignment */
+  max-width: 1200px; /* Align with the title */
+  background: transparent; /* No background for the full container */
+}
+
+
+/* Individual stat items */
+.stats-container dl {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center; 
+  text-align: left;
+  padding: 15px;
+  background: rgba(230, 230, 230, 0.5); /* Light grey background */
+  border-radius: 8px;
+  min-width: 180px; /* Ensure consistent width */
+  flex: none; /* Prevent automatic stretching */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); /* Soft shadow for contrast */
+}
+
+/* Stat titles */
+.stats-container dt {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555; /* Slightly darker label */
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+/* Stat values */
+.stats-container dd {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: rgb(62, 80, 135);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .stats-container {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: flex-start; /* Maintain left alignment */
+  }
+  .stats-container dl {
+    min-width: 45%; /* Two stats per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column; /* Stack vertically on smaller screens */
+    align-items: flex-start;
+  }
+  .stats-container dl {
+    width: 100%;
+  }
+}
+
+.gridlines line {
+  stroke: #ddd;  /* Light grey */
+  stroke-opacity: 0.7; /* Less prominent */
+  shape-rendering: crispEdges;
+}
+
+.gridlines path {
+  stroke-width: 0;
+}
+
+/* Tooltip Base Styling */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px;
+  font-size: 14px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+}
+
+/* Position tooltip at the top-left */
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide tooltip on load, make it visible later */
+.tooltip.hidden {
+  visibility: hidden;
+}
+
+/* Hover Effect */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+dl.info {
+  /* Other styles */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b !important; /* Make selected dots red */
+  stroke: black;
+  stroke-width: 1.5px;
+}
+
+.selection-info {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px; /* Space between chart and text */
+}
+
+.language-row {
+  display: flex;
+  justify-content: space-between; /* Ensures even spacing */
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping if needed */
+  width: 100%; /* Uses full width */
+}
+
+.language-item {
+  flex-grow: 1; /* Allows items to expand equally */
+  text-align: center;
+  background: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap; /* Prevents breaking text */
+  margin: 5px; /* Adds spacing */
+  min-width: 150px; /* Ensures it doesn’t shrink too much */
+  max-width: 250px; /* Prevents stretching too far */
+}

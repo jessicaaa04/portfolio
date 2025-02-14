@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Analysis</title>
+    <link rel="stylesheet" href="../style.css">
+    <script type="module" src="../global.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="summary-container">  
+        <h1>Summary</h1>
+        <p>This page includes stats about the code of this website.</p>
+
+        <div class="stats-container">
+            <div id="stats"></div>
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <div id="chart"></div>
+    </div>
+    <p id="selection-count" class="selection-info">No commits selected</p>
+
+    <dl id="commit-tooltip" class="info tooltip">
+        <dt>Commit</dt>
+        <dd><a href="" id="commit-link" target="_blank"></a></dd>
+
+        <dt>Date</dt>
+        <dd id="commit-date"></dd>
+
+        <dt>Author</dt>
+        <dd id="commit-author"></dd>
+
+        <dt>Lines Edited</dt>
+        <dd id="commit-lines"></dd>
+    </dl>
+    <dl id="language-breakdown" class="stats"></dl>
+</body>
+</html>
+
