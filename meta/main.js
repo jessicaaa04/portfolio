@@ -175,7 +175,7 @@ function createScatterplot() {
 
     // Fixing Area Perception with Square Root Scaling
     const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
-    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 20]);
+    const rScale = d3.scaleSqrt().domain([minLines, maxLines]).range([2, 14]);
 
     // Sorting Commits by Size to Improve Interaction
     const sortedCommits = d3.sort(commits, (d) => -d.totalLines); // Largest dots rendered first
