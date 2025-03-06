@@ -369,15 +369,14 @@ function updateSelectionCount() {
 function updateLanguageBreakdown() {
     const container = document.getElementById('language-breakdown');
 
-    // Use all commits if no commits are brushed
-    const requiredCommits = selectedCommits.length ? selectedCommits : commits;
-    
-    if (!requiredCommits.length) {
+    // If there are no selectedCommits, show "No language breakdown available"
+    if (!selectedCommits.length) {
         container.innerHTML = '<p>No language breakdown available</p>';
         return;
     }
 
-    const lines = requiredCommits.flatMap(d => d.lines || []);
+    // Otherwise, proceed with only the selected commits
+    const lines = selectedCommits.flatMap(d => d.lines || []);
     if (!lines.length) {
         container.innerHTML = '<p>No language data available</p>';
         return;
@@ -398,17 +397,13 @@ function updateLanguageBreakdown() {
     for (const [language, count] of breakdown) {
         const proportion = count / lines.length;
         const formatted = d3.format('.1%')(proportion);
-        
         rowContainer.innerHTML += `
             <div class="language-item">
                 <strong>${language}:</strong> ${count} lines (${formatted})
             </div>
         `;
     }
-    
-    return breakdown;
 }
-
 /*******************************************************
  * 6) FILE VISUALIZATION
  *******************************************************/
