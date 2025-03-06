@@ -11,7 +11,7 @@ body {
     /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
        */
-    max-width: 97ch;
+    max-width: min(120ch, 80vw);
     margin-inline: auto;
     padding: 1rem;
     font: 100%/1.5 system-ui;
@@ -104,7 +104,6 @@ form button {
 form button:hover {
   background-color: gray;
 }
-
 
 .projects {
   display: grid;
@@ -298,17 +297,17 @@ path.selected {
 
 /* Legends and Wedges should have same selection logic */
 .legend {
-  flex: 1; /* Allows legend to take up remaining space */
+  flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, minmax(9em, 1fr)); /* 3 columns */
-  gap: 10px; /* Space between legend items */
+  grid-template-columns: repeat(3, minmax(9em, 1fr));
+  gap: 10px;
   padding: 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
   width: 100%;
-  max-width: 90vw; 
-  box-sizing: border-box; 
+  max-width: 90vw;
+  box-sizing: border-box;
 }
 
 .legend li {
@@ -317,14 +316,13 @@ path.selected {
   gap: 0.5em;
   font-size: 14px;
   font-weight: 500;
-  white-space: nowrap; 
+  white-space: nowrap;
   cursor: pointer;
 }
 
-/* Ensure responsiveness */
 @media (max-width: 768px) {
   .legend {
-    grid-template-columns: repeat(2, minmax(9em, 1fr)); 
+    grid-template-columns: repeat(2, minmax(9em, 1fr));
   }
 }
 
@@ -347,14 +345,14 @@ path.selected {
 
 .legend .swatch.selected {
   background-color: oklch(60% 45% 0) !important;
-  border: 1px solid black; /* Optional: Adds visibility */
+  border: 1px solid black;
 }
 
 /* Search Bar Enhancements */
 .search-container {
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .searchBar {
@@ -373,9 +371,8 @@ path.selected {
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
 }
 
-
 .summary-container {
-  max-width: 1200px; /* Ensure the title and stats align */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -383,40 +380,22 @@ path.selected {
 /* Stats Section */
 .stats-container {
   display: flex;
-  justify-content: flex-start; /* Align stats to the left */
-  align-items: stretch; /* Make all stats have the same height */
-  gap: 20px; /* Spacing between stats */
-  padding: 20px 0; /* Adjust padding for better alignment */
-  max-width: 1200px; /* Align with the title */
-  background: transparent; /* No background for the full container */
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 20px;
+  padding: 20px 0;
+  max-width: 1200px;
+  background: transparent;
 }
 
-
-/* Individual stat items */
-.stats-container dl {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items:center; 
-  text-align: left;
-  padding: 15px;
-  background: rgba(230, 230, 230, 0.5); /* Light grey background */
-  border-radius: 8px;
-  min-width: 180px; /* Ensure consistent width */
-  flex: none; /* Prevent automatic stretching */
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05); /* Soft shadow for contrast */
-}
-
-/* Stat titles */
 .stats-container dt {
   font-size: 0.9rem;
   font-weight: bold;
-  color: #555; /* Slightly darker label */
+  color: #555;
   text-transform: uppercase;
   margin-bottom: 5px;
 }
 
-/* Stat values */
 .stats-container dd {
   font-size: 2.2rem;
   font-weight: bold;
@@ -426,17 +405,17 @@ path.selected {
 
 @media (max-width: 1024px) {
   .stats-container {
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    justify-content: flex-start; /* Maintain left alignment */
+    flex-wrap: wrap;
+    justify-content: flex-start;
   }
   .stats-container dl {
-    min-width: 45%; /* Two stats per row on medium screens */
+    min-width: 45%;
   }
 }
 
 @media (max-width: 768px) {
   .stats-container {
-    flex-direction: column; /* Stack vertically on smaller screens */
+    flex-direction: column;
     align-items: flex-start;
   }
   .stats-container dl {
@@ -445,8 +424,8 @@ path.selected {
 }
 
 .gridlines line {
-  stroke: #ddd;  /* Light grey */
-  stroke-opacity: 0.7; /* Less prominent */
+  stroke: #ddd;
+  stroke-opacity: 0.7;
   shape-rendering: crispEdges;
 }
 
@@ -467,7 +446,6 @@ dl.info {
   max-width: 250px;
 }
 
-/* Position tooltip at the top-left */
 .tooltip {
   position: fixed;
   top: 1em;
@@ -477,14 +455,13 @@ dl.info {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
 }
 
-/* Hide tooltip on load, make it visible later */
 .tooltip.hidden {
   visibility: hidden;
 }
 
-/* Hover Effect */
 circle {
   transition: 200ms;
   transform-origin: center;
@@ -496,7 +473,6 @@ circle:hover {
 }
 
 dl.info {
-  /* Other styles */
   transition-duration: 500ms;
   transition-property: opacity, visibility;
 }
@@ -508,7 +484,7 @@ dl.info[hidden]:not(:hover, :focus-within) {
 
 @keyframes marching-ants {
   to {
-    stroke-dashoffset: -8; /* 5 + 3 */
+    stroke-dashoffset: -8;
   }
 }
 
@@ -521,7 +497,7 @@ dl.info[hidden]:not(:hover, :focus-within) {
 }
 
 circle.selected {
-  fill: #ff6b6b !important; /* Make selected dots red */
+  fill: #ff6b6b !important;
   stroke: black;
   stroke-width: 1.5px;
 }
@@ -530,26 +506,214 @@ circle.selected {
   text-align: center;
   font-size: 14px;
   font-weight: bold;
-  margin-top: 10px; /* Space between chart and text */
+  margin-top: 10px;
 }
 
 .language-row {
   display: flex;
-  justify-content: space-between; /* Ensures even spacing */
+  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Allows wrapping if needed */
-  width: 100%; /* Uses full width */
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .language-item {
-  flex-grow: 1; /* Allows items to expand equally */
+  flex-grow: 1;
   text-align: center;
   background: #f5f5f5;
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 14px;
-  white-space: nowrap; /* Prevents breaking text */
-  margin: 5px; /* Adds spacing */
-  min-width: 150px; /* Ensures it doesn’t shrink too much */
-  max-width: 250px; /* Prevents stretching too far */
+  white-space: nowrap;
+  margin: 5px;
+  min-width: 150px;
+  max-width: 250px;
+}
+
+circle {
+  transition: r calc(var(--r) * 100ms) ease-out;
+}
+
+@starting-style {
+  circle {
+    r: 0;
+  }
+}
+
+/* Stats Grid */
+.stats-dl {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.stats-dl dt,
+.stats-dl dd {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.stats-dl dt {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.stats-dl dd {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3e5087;
+}
+
+.stats-dl dt:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+.stats-dl dd:nth-of-type(1) {
+  grid-column: 1;
+  grid-row: 2;
+}
+.stats-dl dt:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+.stats-dl dd:nth-of-type(2) {
+  grid-column: 2;
+  grid-row: 2;
+}
+.stats-dl dt:nth-of-type(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+.stats-dl dd:nth-of-type(3) {
+  grid-column: 3;
+  grid-row: 2;
+}
+.stats-dl dt:nth-of-type(4) {
+  grid-column: 4;
+  grid-row: 1;
+}
+.stats-dl dd:nth-of-type(4) {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+/* File Visualization */
+.files {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.file-block {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  column-gap: 1rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  align-items: start;
+}
+
+.file-block dt {
+  margin: 0;
+  padding: 0;
+  white-space: normal;
+  text-align: left;
+  font-weight: bold;
+}
+
+.file-block dd {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: start;
+  align-content: start;
+  text-align: left;
+}
+
+.line {
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+/* Commit Container (existing) */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(300px, 40%) minmax(400px, 60%);
+  gap: 2rem;
+  align-items: start;
+}
+
+#scroll-container {
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+}
+
+/* Scatterplot container */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* New Styles for Files Scrolly (Unit Visualization Scrolly) */
+.container-files {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  align-items: start;
+}
+
+#files-scroll-container {
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 15px;
+  background: white;
+  border-radius: 8px;
+}
+
+#files-items-container {
+  position: relative;
+}
+
+#files-spacer {
+  height: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  #scroll-container {
+    height: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+dl.info.tooltip {
+  position: fixed;
+  z-index: 9999;
 }

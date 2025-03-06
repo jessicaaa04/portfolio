@@ -1,43 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Analysis</title>
-    <link rel="stylesheet" href="../style.css">
-    <script type="module" src="../global.js"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="main.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meta Analysis</title>
+  <link rel="stylesheet" href="../style.css" />
+  <script type="module" src="../global.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="main.js"></script>
 </head>
 <body>
-    <div class="summary-container">  
-        <h1>Summary</h1>
-        <p>This page includes stats about the code of this website.</p>
 
-        <div class="stats-container">
-            <div id="stats"></div>
-        </div>
+  <!-- Summary Section (unchanged) -->
+  <section class="summary-container">  
+    <h1>Summary</h1>
+    <p>This page includes stats about the code of this website.</p>
+    <div class="stats-container">
+      <div id="stats"></div>
+    </div>
+  </section>
+
+  <!-- Title for Commits Section -->
+  <h2>Commits by Time of Day</h2>
+  
+  <!-- Container for Commit List + Scatterplot (unchanged) -->
+  <div class="container">
+    <!-- Left Side: Scroll-based storytelling for commits -->
+    <div id="scroll-container">
+      <div id="items-container"></div>
+      <div id="spacer"></div>
     </div>
 
+    <!-- Right Side: Scatterplot -->
     <div class="chart-container">
-        <div id="chart"></div>
+      <div id="chart"></div>
     </div>
-    <p id="selection-count" class="selection-info">No commits selected</p>
+  </div>
 
-    <dl id="commit-tooltip" class="info tooltip">
-        <dt>Commit</dt>
-        <dd><a href="" id="commit-link" target="_blank"></a></dd>
+  <!-- Selection Count (unchanged) -->
+  <p id="selection-count" class="selection-info">No commits selected</p>
 
-        <dt>Date</dt>
-        <dd id="commit-date"></dd>
+  <!-- Tooltip for Commit Details (unchanged) -->
+  <dl id="commit-tooltip" class="info tooltip" hidden>
+    <dt>Commit</dt>
+    <dd><a id="commit-link" target="_blank"></a></dd>
+    <dt>Date</dt>
+    <dd id="commit-date"></dd>
+    <dt>Author</dt>
+    <dd id="commit-author"></dd>
+    <dt>Lines Edited</dt>
+    <dd id="commit-lines"></dd>
+  </dl>
 
-        <dt>Author</dt>
-        <dd id="commit-author"></dd>
+  <!-- Language Breakdown (unchanged) -->
+  <dl id="language-breakdown" class="stats"></dl>
 
-        <dt>Lines Edited</dt>
-        <dd id="commit-lines"></dd>
-    </dl>
-    <dl id="language-breakdown" class="stats"></dl>
+  <!-- New Section: "Codespace" for File Visualization and Files Scrolly -->
+  <h2>Codespace</h2>
+  <div class="container-files">
+    <!-- Left: File Visualization -->
+    <section id="file-visualization" class="files"></section>
+
+    <!-- Right: File Scrolly -->
+    <div id="files-scroll-container">
+      <div id="files-items-container"></div>
+      <div id="files-spacer"></div>
+    </div>
+  </div>
+
 </body>
 </html>
+
 
